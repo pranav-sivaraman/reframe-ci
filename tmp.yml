@@ -1,0 +1,78 @@
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - rfm-stage/${CI_COMMIT_SHORT_SHA}
+stages:
+- rfm-stage-0
+foo_0:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=foo_0-report.json  --report-junit=foo_0-report.xml  -n /6c8886ee -r
+  artifacts:
+    paths:
+    - foo_0-report.json
+  needs: []
+foo_1:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=foo_1-report.json  --report-junit=foo_1-report.xml  -n /b453eddb -r
+  artifacts:
+    paths:
+    - foo_1-report.json
+  needs: []
+foo_2:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=foo_2-report.json  --report-junit=foo_2-report.xml  -n /ba60a375 -r
+  artifacts:
+    paths:
+    - foo_2-report.json
+  needs: []
+bar_0:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=bar_0-report.json  --report-junit=bar_0-report.xml  -n /549cdb28 -r
+  artifacts:
+    paths:
+    - bar_0-report.json
+  needs: []
+bar_1:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=bar_1-report.json  --report-junit=bar_1-report.xml  -n /c7f7935c -r
+  artifacts:
+    paths:
+    - bar_1-report.json
+  needs: []
+bar_2:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=bar_2-report.json  --report-junit=bar_2-report.xml  -n /6d0ee5b4 -r
+  artifacts:
+    paths:
+    - bar_2-report.json
+  needs: []
+baz_0:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=baz_0-report.json  --report-junit=baz_0-report.xml  -n /f80528e0 -r
+  artifacts:
+    paths:
+    - baz_0-report.json
+  needs: []
+baz_1:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=baz_1-report.json  --report-junit=baz_1-report.xml  -n /7e62d062 -r
+  artifacts:
+    paths:
+    - baz_1-report.json
+  needs: []
+baz_2:
+  stage: rfm-stage-0
+  script:
+  - reframe --prefix=rfm-stage/${CI_COMMIT_SHORT_SHA}  -c tests.py  --report-file=baz_2-report.json  --report-junit=baz_2-report.xml  -n /974bc9e6 -r
+  artifacts:
+    paths:
+    - baz_2-report.json
+  needs: []
