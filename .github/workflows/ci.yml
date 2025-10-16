@@ -33,7 +33,7 @@ jobs:
 
       - id: set-matrix
         run: |
-          echo "matrix=$(reframe -P num_nodes=1,2,4 -c tests.py --describe | jq -c '{include: [.[] | {name, hashcode}]}') >> "$GITHUB_OUTPUT"
+          echo "matrix=$(reframe -P num_nodes=1,2,4 -c tests.py --describe | jq -c '{include: [.[] | {name, hashcode}]}')" >> "$GITHUB_OUTPUT"
   job2:
     needs: job1
     runs-on: ubuntu-latest
