@@ -43,3 +43,18 @@ jobs:
     steps:
     - run: echo ${{ matrix.name }}
     - run: echo ${{ matrix.hashcode }}
+  all:
+    name: All
+    needs:
+     - job2
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+    - name: Status summary
+      run: |
+        if ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}; then
+          echo "One or more required jobs failed or were cancelled"
+          exit 1
+        else
+          echo "All jobs completed successfully!"
+        fi
