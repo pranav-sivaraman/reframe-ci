@@ -39,6 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      max-parallel: 4
     name: ${{ matrix.name }}
     steps:
     - run: echo ${{ matrix.name }}
