@@ -39,6 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+    name: ${{ matrix.name }}
     steps:
     - run: echo ${{ matrix.name }}
     - run: echo ${{ matrix.hashcode }}
